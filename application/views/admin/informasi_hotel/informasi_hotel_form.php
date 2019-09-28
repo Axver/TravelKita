@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!--	Load Header Disini-->
+	<link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>"/>
+
+	<?php $this->load->view("template/header"); ?>
+</head>
+
+<body class="dark-edition">
+<div class="wrapper ">
+	<?php $this->load->view('template/sidebar'); ?>
+
+	<div class="main-panel">
+		<!-- Navbar -->
+		<?php $this->load->view('template/panel'); ?>
+		<!-- End Navbar -->
+		<div class="content">
+			<div class="container-fluid">
+				<!-- your content here -->
+				<h2 style="margin-top:0px">Informasi_hotel <?php echo $button ?></h2>
+				<form action="<?php echo $action; ?>" method="post">
+					<div class="form-group">
+						<label for="varchar">Username <?php echo form_error('username') ?></label>
+						<input type="text" class="form-control" name="username" id="username" placeholder="Username" value="<?php echo $username; ?>" />
+					</div>
+					<div class="form-group">
+						<label for="varchar">Nama Hotel <?php echo form_error('nama_hotel') ?></label>
+						<input type="text" class="form-control" name="nama_hotel" id="nama_hotel" placeholder="Nama Hotel" value="<?php echo $nama_hotel; ?>" />
+					</div>
+					<div class="form-group">
+						<label for="varchar">Alamat Hotel <?php echo form_error('alamat_hotel') ?></label>
+						<input type="text" class="form-control" name="alamat_hotel" id="alamat_hotel" placeholder="Alamat Hotel" value="<?php echo $alamat_hotel; ?>" />
+					</div>
+					<div class="form-group">
+						<label for="varchar">Nomor Telepon <?php echo form_error('nomor_telepon') ?></label>
+						<input type="text" class="form-control" name="nomor_telepon" id="nomor_telepon" placeholder="Nomor Telepon" value="<?php echo $nomor_telepon; ?>" />
+					</div>
+					<div class="form-group">
+						<label for="varchar">Informasi <?php echo form_error('informasi') ?></label>
+						<input type="text" class="form-control" name="informasi" id="informasi" placeholder="Informasi" value="<?php echo $informasi; ?>" />
+					</div>
+					<div class="form-group">
+						<label for="varchar">Latitude <?php echo form_error('latitude') ?></label>
+						<input type="text" class="form-control" name="latitude" id="latitude" placeholder="Latitude" value="<?php echo $latitude; ?>" />
+					</div>
+					<div class="form-group">
+						<label for="varchar">Longitude <?php echo form_error('longitude') ?></label>
+						<input type="text" class="form-control" name="longitude" id="longitude" placeholder="Longitude" value="<?php echo $longitude; ?>" />
+					</div>
+					<div class="form-group">
+						<label for="varchar">Id Kecamatan <?php echo form_error('id_kecamatan') ?></label>
+						<input type="text" class="form-control" name="id_kecamatan" id="id_kecamatan" placeholder="Id Kecamatan" value="<?php echo $id_kecamatan; ?>" />
+					</div>
+					<input type="hidden" name="id_hotel" value="<?php echo $id_hotel; ?>" />
+					<button type="submit" class="btn btn-primary"><?php echo $button ?></button>
+					<a href="<?php echo site_url('informasi_hotel') ?>" class="btn btn-default">Cancel</a>
+				</form>
+			</div>
+		</div>
+		<footer class="footer">
+			<div class="container-fluid">
+				<nav class="float-left">
+					<ul>
+						<li>
+							<a href="https://www.creative-tim.com">
+								TravelKita
+							</a>
+						</li>
+					</ul>
+				</nav>
+
+				<!-- your footer here -->
+			</div>
+		</footer>
+	</div>
+
+</div>
+<!--   Core JS Files   -->
+<script src="<?php echo base_url('/assets/js/core/jquery.min.js'); ?>"></script>
+<script src="<?php echo base_url('/assets/js/core/popper.min.js') ?>"></script>
+<script src="<?php echo base_url('/assets/js/core/bootstrap-material-design.min.js') ?>"></script>
+<script src="https://unpkg.com/default-passive-events"></script>
+<script src="<?php echo base_url('/assets/js/plugins/perfect-scrollbar.jquery.min.js') ?>"></script>
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<!--  Google Maps Plugin    -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!-- Chartist JS -->
+<script src="<?php echo base_url('/assets/js/plugins/chartist.min.js') ?>"></script>
+<!--  Notifications Plugin    -->
+<script src="<?php echo base_url('/assets/js/plugins/bootstrap-notify.js') ?>"></script>
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="<?php echo base_url('/assets/js/material-dashboard.js?v=2.1.0') ?>"></script>
+<!-- Material Dashboard DEMO methods, don't include it in your project! -->
+<script src="<?php echo base_url('/assets/demo/demo.js') ?>"></script>
+<script>
+    $(document).ready(function() {
+        $().ready(function() {
+            $sidebar = $('.sidebar');
+
+            $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+            $full_page = $('.full-page');
+
+            $sidebar_responsive = $('body > .navbar-collapse');
+
+            window_width = $(window).width();
+
+            $('.fixed-plugin a').click(function(event) {
+                // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+                if ($(this).hasClass('switch-trigger')) {
+                    if (event.stopPropagation) {
+                        event.stopPropagation();
+                    } else if (window.event) {
+                        window.event.cancelBubble = true;
+                    }
+                }
+            });
+
+            $('.fixed-plugin .active-color span').click(function() {
+                $full_page_background = $('.full-page-background');
+
+                $(this).siblings().removeClass('active');
+                $(this).addClass('active');
+
+                var new_color = $(this).data('color');
+
+                if ($sidebar.length != 0) {
+                    $sidebar.attr('data-color', new_color);
+                }
+
+                if ($full_page.length != 0) {
+                    $full_page.attr('filter-color', new_color);
+                }
+
+                if ($sidebar_responsive.length != 0) {
+                    $sidebar_responsive.attr('data-color', new_color);
+                }
+            });
+
+            $('.fixed-plugin .background-color .badge').click(function() {
+                $(this).siblings().removeClass('active');
+                $(this).addClass('active');
+
+                var new_color = $(this).data('background-color');
+
+                if ($sidebar.length != 0) {
+                    $sidebar.attr('data-background-color', new_color);
+                }
+            });
+
+            $('.fixed-plugin .img-holder').click(function() {
+                $full_page_background = $('.full-page-background');
+
+                $(this).parent('li').siblings().removeClass('active');
+                $(this).parent('li').addClass('active');
+
+
+                var new_image = $(this).find("img").attr('src');
+
+                if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                    $sidebar_img_container.fadeOut('fast', function() {
+                        $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                        $sidebar_img_container.fadeIn('fast');
+                    });
+                }
+
+                if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                    var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                    $full_page_background.fadeOut('fast', function() {
+                        $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                        $full_page_background.fadeIn('fast');
+                    });
+                }
+
+                if ($('.switch-sidebar-image input:checked').length == 0) {
+                    var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+                    var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                    $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                    $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                }
+
+                if ($sidebar_responsive.length != 0) {
+                    $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+                }
+            });
+
+            $('.switch-sidebar-image input').change(function() {
+                $full_page_background = $('.full-page-background');
+
+                $input = $(this);
+
+                if ($input.is(':checked')) {
+                    if ($sidebar_img_container.length != 0) {
+                        $sidebar_img_container.fadeIn('fast');
+                        $sidebar.attr('data-image', '#');
+                    }
+
+                    if ($full_page_background.length != 0) {
+                        $full_page_background.fadeIn('fast');
+                        $full_page.attr('data-image', '#');
+                    }
+
+                    background_image = true;
+                } else {
+                    if ($sidebar_img_container.length != 0) {
+                        $sidebar.removeAttr('data-image');
+                        $sidebar_img_container.fadeOut('fast');
+                    }
+
+                    if ($full_page_background.length != 0) {
+                        $full_page.removeAttr('data-image', '#');
+                        $full_page_background.fadeOut('fast');
+                    }
+
+                    background_image = false;
+                }
+            });
+
+            $('.switch-sidebar-mini input').change(function() {
+                $body = $('body');
+
+                $input = $(this);
+
+                if (md.misc.sidebar_mini_active == true) {
+                    $('body').removeClass('sidebar-mini');
+                    md.misc.sidebar_mini_active = false;
+
+                    $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+                } else {
+
+                    $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+                    setTimeout(function() {
+                        $('body').addClass('sidebar-mini');
+
+                        md.misc.sidebar_mini_active = true;
+                    }, 300);
+                }
+
+                // we simulate the window Resize so the charts will get updated in realtime.
+                var simulateWindowResize = setInterval(function() {
+                    window.dispatchEvent(new Event('resize'));
+                }, 180);
+
+                // we stop the simulation of Window Resize after the animations are completed
+                setTimeout(function() {
+                    clearInterval(simulateWindowResize);
+                }, 1000);
+
+            });
+        });
+    });
+</script>
+</body>
+
+</html>s
