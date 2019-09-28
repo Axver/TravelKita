@@ -6,7 +6,7 @@
 <?php $this->load->view("template/header"); ?>
 </head>
 
-<body class="dark-edition">
+<body>
 <div class="wrapper ">
     <?php $this->load->view('template/sidebar'); ?>
 

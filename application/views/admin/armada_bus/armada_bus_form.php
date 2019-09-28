@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>"/>
 </head>
 
-<body class="dark-edition">
+<body>
 <div class="wrapper ">
 	<?php $this->load->view('template/sidebar'); ?>
 
