@@ -17,7 +17,7 @@
 					<div class="span4">
 						<!-- logo -->
 						<div class="logo">
-							<img style="width:20%" src="<?php echo base_url('assets/img/travelkita.png') ?>">
+							<img style="width:25%" src="<?php echo base_url('assets/img/travelkita.png') ?>">
 							<!-- <img src="assets/plato/img/logo.png" alt="" /> -->
 						</div>
 						<!-- end logo -->
