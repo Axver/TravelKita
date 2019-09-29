@@ -3,22 +3,22 @@
 		<nav>
 			<ul class="nav topnav">
 				<li class="dropdown active">
-					<a href="index.html">Home</a>
+					<a href="<?php echo base_url(); ?>">Home</a>
 				</li>
 				<li>
-					<a href="contact.html">Flight</a>
+					<a href="<?php echo base_url('flight'); ?>">Flight</a>
 				</li>
 				<li>
-					<a href="contact.html">Bus</a>
+					<a href="<?php echo base_url('bus'); ?>">Bus</a>
 				</li>
 				<li>
-					<a href="contact.html">Hotel</a>
+					<a href="<?php echo base_url('hotel'); ?>">Hotel</a>
 				</li>
 				<li>
-					<a href="contact.html">Register</a>
+					<a href="<?php echo base_url('register') ?>">Register</a>
 				</li>
 				<li>
-					<a href="contact.html">Login</a>
+					<a href="<?php echo base_url('login') ?>">Login</a>
 				</li>
 			</ul>
 		</nav>
