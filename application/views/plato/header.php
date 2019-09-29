@@ -50,3 +50,5 @@
 
 <!-- Template Custom Javascript File -->
 <script src="<?php echo base_url('assets/plato/js/custom.js') ?>"></script>
+
+<script src="https://use.fontawesome.com/39c3f0b1a8.js"></script>

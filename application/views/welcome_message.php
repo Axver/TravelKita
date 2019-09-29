@@ -6,6 +6,22 @@
 
 	<style>
 		
+		.card {
+			/* Add shadows to create the "card" effect */
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+			transition: 0.3s;
+		}
+
+		/* On mouse-over, add a deeper shadow */
+		.card:hover {
+			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
+
+		/* Add some padding inside the card container */
+		.container {
+			padding: 2px 16px;
+		}
+
 
 
 
@@ -132,6 +148,33 @@
 		<div class="row">
 			<div class="span6">
 				<h2><strong>Welcome to <span class="highlight primary">TravelKita</span></strong></h2>
+				<div class="wrapper" style="text-align: center">
+					<div class="card" style="text-align: center;float:left;color:#09828c;width:80px;">
+						<!--			<img src="img_avatar.png" alt="Avatar" style="width:100%">-->
+
+						<i class="fa fa-car" style="font-size:60px;float:left;"></i>
+
+					</div>
+					<div class="card" style="float:left;color:#09828c;width:80px;">
+						<!--			<img src="img_avatar.png" alt="Avatar" style="width:100%">-->
+
+						<i class="fa fa-hotel" style="font-size:60px;float:left;"></i>
+
+					</div>
+					<div class="card" style="float:left;color:#09828c;width:80px;">
+						<!--			<img src="img_avatar.png" alt="Avatar" style="width:100%">-->
+
+						<i class="fa fa-plane" style="font-size:60px;float:left;"></i>
+
+					</div>
+					<div class="card" style="float:left;color:#09828c;width:80px;">
+						<!--			<img src="img_avatar.png" alt="Avatar" style="width:100%">-->
+
+						<i class="fa fa-question-circle-o" style="text-align: center;font-size:60px;float:left;"></i>
+
+					</div>
+
+				</div>
 
 				<div class="Wrapper">
 
@@ -141,7 +184,10 @@
 						<input type="date" id="destination" class="Input-text" placeholder="Destination">
 						<button class="btn btn-info"> Search</button>
 
+
 					</div>
+
+
 				</div>
 
 			</div>
@@ -175,16 +221,58 @@
 </section>
 <section id="maincontent">
 	<div class="container">
+		<div class="container">
+			<h3><b style="color:red;">Hasil Pencarian</b></h3>
+		</div>
+
+		<div class="card">
+<!--			<img src="img_avatar.png" alt="Avatar" style="width:100%">-->
+			<div class="container" style="height:100px;">
+				<img style="float:left; width:100px;" src="<?php echo base_url('assets/img/maskapai/garuda.png'); ?>" alt="">
+				<button class="btn btn-info" style="float:right;margin-right: 20px;">Buy</button>
+				<button class="btn btn-info" style="float:right;margin-right: 20px;">Info</button>
+				<p style="margin-left:10px;"><b>Garuda Indonesia</b> <br><h3><b style="color:#09828C">Rp.2000.000</b></h3></p>
 
 
+			</div>
 
+		</div>
 
+		<div class="card">
+			<!--			<img src="img_avatar.png" alt="Avatar" style="width:100%">-->
+			<div class="container" style="height:100px;">
+				<img style="float:left; width:100px;" src="<?php echo base_url('assets/img/maskapai/batikair.png'); ?>" alt="">
+				<button class="btn btn-info" style="float:right;margin-right: 20px;">Buy</button>
+				<button class="btn btn-info" style="float:right;margin-right: 20px;">Info</button>
+				<p style="margin-left:10px;"><b>Batik Air</b><br><h3><b style="color:#09828C">Rp.2000.000</b></h3></p>
+			</div>
+		</div>
+		<div class="card">
+			<!--			<img src="img_avatar.png" alt="Avatar" style="width:100%">-->
+			<div class="container" style="height:100px;">
+				<img style="float:left; width:100px;" src="<?php echo base_url('assets/img/maskapai/airasia.png'); ?>" alt="">
+				<button class="btn btn-info" style="float:right;margin-right: 20px;">Buy</button>
+				<button class="btn btn-info" style="float:right;margin-right: 20px;">Info</button>
+				<p><b>Air Asia</b><br><h3><b style="color:#09828C">Rp.2000.000</b></h3></p>
+			</div>
+		</div>
+		<div class="card">
+			<!--			<img src="img_avatar.png" alt="Avatar" style="width:100%">-->
+			<div class="container" style="height:100px;">
+				<img style="float:left; width:100px;" src="<?php echo base_url('assets/img/maskapai/lion.png'); ?>" alt="">
+				<button class="btn btn-info" style="float:right;margin-right: 20px;">Buy</button>
+				<button class="btn btn-info" style="float:right;margin-right: 20px;">Info</button>
+				<p style="margin-left:50px;"><b>Lion Air</b><br><h3><b style="color:#09828C">Rp.2000.000</b></h3></p>
 
+			</div>
+		</div>
+		<br>
+		<div class="card">
 
+				<button class="btn btn-info" style="height:50px;width:150px;">Load More</button>
 
-
-
-
+		</div>
+		<br>
 	</div>
 </section>
 <!-- Footer
